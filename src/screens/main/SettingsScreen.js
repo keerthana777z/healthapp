@@ -40,6 +40,7 @@ export default function SettingsScreen() {
         <View style={styles.settingText}>
           <Text style={[styles.settingTitle, danger && styles.dangerText]}>{title}</Text>
           {subtitle && <Text style={styles.settingSubtitle}>{subtitle}</Text>}
+          }
         </View>
       </View>
       {showArrow && (
