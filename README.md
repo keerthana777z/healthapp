@@ -1,73 +1,160 @@
-# Welcome to your Lovable project
+# AI Health Coach Mobile App
 
-## Project info
+A React Native mobile app built with Expo that provides personalized health coaching with AI-powered recommendations, risk assessments, and goal tracking.
 
-**URL**: https://lovable.dev/projects/bfe1f5fd-96ea-41e7-97da-137e42c4af66
+## Features
 
-## How can I edit this code?
+- **Authentication**: Secure login/signup with Supabase
+- **Dashboard**: Real-time health metrics, risk cards, and AI recommendations
+- **Profile Management**: Edit personal and health information
+- **Micro-Goals Tracking**: Set and track daily health goals
+- **Risk Assessment**: SHAP-based explanations for health risks
+- **Settings**: App preferences and account management
 
-There are several ways of editing your application.
+## Prerequisites
 
-**Use Lovable**
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI (`npm install -g @expo/cli`)
+- iOS Simulator (for iOS development) or Android Studio (for Android development)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bfe1f5fd-96ea-41e7-97da-137e42c4af66) and start prompting.
+## Installation
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd health-coach-mobile
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
+```bash
+npm install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server:
+```bash
+npm start
+```
 
-**Use GitHub Codespaces**
+4. Run on your preferred platform:
+```bash
+# iOS
+npm run ios
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Android
+npm run android
 
-## What technologies are used for this project?
+# Web
+npm run web
+```
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/          # Reusable UI components
+│   ├── RiskCard.js
+│   ├── MicroGoalsPanel.js
+│   ├── ShapExplanation.js
+│   └── AIRecommendations.js
+├── contexts/           # React contexts
+│   └── AuthContext.js
+├── navigation/         # Navigation configuration
+│   ├── AppNavigator.js
+│   ├── AuthNavigator.js
+│   └── MainNavigator.js
+├── screens/           # Screen components
+│   ├── auth/
+│   │   ├── LoginScreen.js
+│   │   └── SignupScreen.js
+│   ├── main/
+│   │   ├── DashboardScreen.js
+│   │   ├── ProfileScreen.js
+│   │   └── SettingsScreen.js
+│   └── LoadingScreen.js
+└── config/
+    └── supabase.js    # Supabase configuration
+```
 
-## How can I deploy this project?
+## Supabase Integration
 
-Simply open [Lovable](https://lovable.dev/projects/bfe1f5fd-96ea-41e7-97da-137e42c4af66) and click on Share -> Publish.
+The app is fully integrated with Supabase for:
+- User authentication
+- Patient data storage
+- Real-time updates
+- Health metrics tracking
 
-## Can I connect a custom domain to my Lovable project?
+Make sure your Supabase project has the following tables:
+- `users` - User profiles and health information
+- `patient_logs` - Health metrics and micro-goals
+- `ai_queries` - AI recommendation history
 
-Yes, you can!
+## Key Features
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Authentication
+- Email/password login and signup
+- Secure session management
+- Profile creation with health information
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Dashboard
+- Risk assessment cards for diabetes and hypertension
+- Micro-goals tracking with real-time updates
+- SHAP explanations for risk factors
+- AI-powered health recommendations
+
+### Profile Management
+- Edit personal information
+- Manage health conditions, medications, and allergies
+- Real-time sync with Supabase
+
+### Settings
+- App preferences
+- Privacy and data management
+- Account settings
+
+## Development
+
+### Adding New Features
+
+1. Create new components in `src/components/`
+2. Add new screens in `src/screens/`
+3. Update navigation in `src/navigation/`
+4. Integrate with Supabase in component logic
+
+### Styling
+
+The app uses a consistent design system with:
+- Medical-themed colors (blues, greens, reds)
+- Mobile-optimized spacing and typography
+- Shadow effects for depth
+- Responsive design for different screen sizes
+
+## Deployment
+
+### Building for Production
+
+```bash
+# Build for iOS
+expo build:ios
+
+# Build for Android
+expo build:android
+```
+
+### Publishing to App Stores
+
+Follow Expo's documentation for publishing to:
+- Apple App Store
+- Google Play Store
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
